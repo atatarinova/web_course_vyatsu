@@ -1,0 +1,82 @@
+\documentclass[a4paper,12pt]{extarticle}
+
+% Для поддержки русского языка
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+
+\usepackage{geometry} % Простой способ задавать поля
+	\geometry{top=20mm}
+	\geometry{bottom=20mm}
+	\geometry{left=20mm}
+	\geometry{right=20mm}
+
+\usepackage{indentfirst} % Отступ первого абзаца
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % Формулы
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}}
+
+\usepackage{hyperref}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=teal,
+  urlcolor=magenta
+}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{xcolor}
+\definecolor{mygreen}{RGB}{0,160,0}
+
+\author{Татаринова А.Г.}
+\title{Лабораторная работа 3}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\text{Цель}: овладеть навыками семантической верстки с помощью средств css. Улучшить
+умением использовать Flexbox и CSS Grid.
+\begin{itemize}
+    \item Лабораторная работа сдается преподавателю лично студентом.
+    \item В ходе сдачи лабораторной работы показывается написанный код и даются по нему комментарии.
+\end{itemize}
+
+
+\section{Задание}
+Сверстайте страницу «Афиша города»: шапка с навигацией, блок фильтров, сетка карточек событий, блок тегов, подвал. Используйте двухколоночную раскладку (фильтры слева, контент справа).
+Требования и ограничения:
+\begin{enumerate}
+  \item Только HTML и CSS, без фреймворков и CSS-библиотек.
+  \item Семантическая разметка: header, nav, main, aside, section, article, footer.
+  \item Сетка страницы на CSS Grid, локальные компоненты и выравнивание —
+на Flexbox.
+  \item Сделайте переключатель темы (светлая/темная)
+\end{enumerate}
+
+Пример:
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lab3_task1.png}
+\end{figure}
+
+\section{Задание}
+
+Познакомьтесь с библиотекой Bootstrap (например, используя \href{https://itchief.ru/bootstrap}{ресурс}).
+Официальный ресурс библиотеки Bootstrap - \href{https://getbootstrap.com}{ссылка}.
+
+Добавьте в свой проект несколько компонентов из Bootstrap 5, не используя JavaScript. Добавьте или перепишите часть элементов интерфейса (например, карточки событий, кнопки, формы фильтрации, навигацию) с применением соответствующих Bootstrap-классов. \textbf{На странице должно быть не менее трёх компонентов библиотеки Bootstrap}.
+Пример работы с компонентами:
+\begin{enumerate}
+  \item Карточки событий: Оформите каждую карточку с помощью класса .card, внутри используйте .card-body, .card-title, .card-text, и, при необходимости, .btn.
+  \item Кнопки: Замените собственные классы кнопок на .btn и вариации .btn-primary, .btn-outline-secondary, и так далее.
+  \item Формы фильтрации: Используйте классы .form-label, .form-select, .form-control вместо своих оформлений для <select>, <input>, <label>.
+  \item Навигация: Перестройте меню с помощью .nav, .nav-pills или .nav-tabs — статические, без выпадающих списков и переключателей.
+\end{enumerate}
+
+\end{document}
