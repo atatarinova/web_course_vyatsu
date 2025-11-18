@@ -1,0 +1,118 @@
+\documentclass[a4paper,12pt]{extarticle}
+
+% Для поддержки русского языка
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+
+\usepackage{geometry} % Простой способ задавать поля
+	\geometry{top=20mm}
+	\geometry{bottom=20mm}
+	\geometry{left=20mm}
+	\geometry{right=20mm}
+
+\usepackage{indentfirst} % Отступ первого абзаца
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % Формулы
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}}
+
+\usepackage{hyperref}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=teal,
+  urlcolor=magenta
+}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{framed}
+\usepackage{xcolor}
+\definecolor{mygreen}{RGB}{0,160,0}
+
+\author{Татаринова А.Г.}
+\title{Лабораторная работа 6}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\text{Цель}: получить навыки написания веб-сервиса на Fast-API.
+\begin{itemize}
+    \item Лабораторная работа сдается преподавателю лично студентом.
+    \item Сдача лабораторной работы заключается в том, что студент отвечает на вопросы преподавателя по заданиям, а также показывает и комментирует результаты самостоятельно выполненных заданий.
+    \item Всё что написано в заданиях «изучите, узнайте и прочее» нужно изучить и для себя
+зафиксировать, так как преподаватель может спросить об этом при сдаче
+лабораторной работы.
+\end{itemize}
+\textbf{(!)} В качестве дополнительного руководства можно использовать уроки курса \href{https://metanit.com/python/fastapi/1.12.php}{«Python и FastAPI»} с ресурса Metanit.
+
+
+\section{Задание}
+Изучите материалы 1, 2, 3 и 4 глав книги «Создание веб-API Python с помощью
+FastAPI». Реализуйте пример приложения ToDo по материалам книги только этих глав (Часть 1).
+
+\section{Задание}
+Запустите скрипт app.py в каталоге server проекта \textbf{web-lab-6-proj-test}. Через UI Swagger вызовите документацию для api запущенного сервиса через \href{localhost:8085}{localhost:8085} (надо добавить к адресу «docs»). Попробуйте вызвать каждый из маршрутов сервиса.
+
+Также откройте веб-страницу index.html в каталоге client и проверьте работу соответствующего маршрута.
+
+\section{Задание}
+Напишите веб-сервис, выполняющий поиск научных статей ресурса arxiv.org по их заголовкам.
+
+\begin{tcolorbox}
+Для извлечения данных со страницы используйте библиотеку BeautifulSoup4 (bs4). Ниже показана краткая справка по извлечению данных со страницы.
+\end{tcolorbox}
+
+\begin{tcolorbox}
+Для получения списка статей из области компьютерных наук выполняйте запросы, используя библиотеку requests (см. первую лабораторную работу). В своих запросах используйте параметр, хранящий запросные слова. Чтобы понять какой параметр использовать, обратите внимание на параметры адресной строки при поиске на странице \href{https://arxiv.org/search/cs}{https://arxiv.org/search/cs}.
+\end{tcolorbox}
+
+Приложение должно выполнять следующие функции:
+\begin{enumerate}[label=\alph*)]
+\item получение списка статей из области компьютерных наук (\href{https://arxiv.org/search/cs}{https://arxiv.org/search/cs}), в заголовках (title) которых встречаются заданные пользователем слова (параметры в маршруте),
+\item получение названия, авторов и аннотации статьи по её ID на сайте arxiv.org (уточнение смотри ниже на поясняющих скриншотах),
+\item перевод аннотации выбранной статьи. Пример перевода текста можно посмотреть в коде для второго задания, в котором используется библиотека translate на основе Microsoft Translator (устанавливается как \textbf{pip install translate}). Учтите ограничение на длину переводного текста, для этого можно текст аннотации делить на несколько предложений и для них вызывать функцию перевода.
+\end{enumerate}
+
+Протестируйте работу веб-сервиса через UI Swagger.
+
+\begin{tcolorbox}
+URL страницы с аннотацией статьи составляется по правилу:\\
+arxiv.org/abs/{ID статьи}.\\
+Например: \href{https://arxiv.org/abs/2502.10299}{https://arxiv.org/abs/2502.10299}
+\end{tcolorbox}
+
+ID номером статьи является набор цифр, следующий после \textbf{arXiv:} в строке перед названием научной статьи:
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lab6_task3.png}
+\end{figure}
+
+Краткая справка по использованию библиотеки BeautifulSoup4 (bs4):
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lab6_task3_2.png}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lab6_task3_3.png}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lab6_task3_4.png}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lab6_task3_5.png}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{lab6_task3_6.png}
+\end{figure}
+
+\end{document}
