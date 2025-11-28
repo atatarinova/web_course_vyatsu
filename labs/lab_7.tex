@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{extarticle}
+
+% Для поддержки русского языка
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+
+\usepackage{geometry} % Простой способ задавать поля
+	\geometry{top=20mm}
+	\geometry{bottom=20mm}
+	\geometry{left=20mm}
+	\geometry{right=20mm}
+
+\usepackage{indentfirst} % Отступ первого абзаца
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % Формулы
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+\usepackage{graphicx}  % Для вставки рисунков
+\graphicspath{{images/}}
+
+\usepackage{hyperref}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=teal,
+  urlcolor=magenta
+}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{framed}
+\usepackage{xcolor}
+\definecolor{mygreen}{RGB}{0,160,0}
+
+\author{Татаринова А.Г.}
+\title{Лабораторная работа 7 \\
+    \large Дополнительная}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Цель}: получить навыки написания клиентской стороны с запросом к API. 
+\vspace{\baselineskip}
+\begin{tcolorbox}
+\textbf{Важное замечание}: Лабораторная работа является \underline{дополнительной}. Её выполнение засчитывается за сдачу финального теста на последнем лабораторном занятии.
+\end{tcolorbox}
+
+\begin{itemize}
+    \item Лабораторная работа сдается преподавателю лично студентом.
+    \item Сдача лабораторной работы заключается в том, что студент отвечает на вопросы преподавателя по заданиям, а также показывает и комментирует результаты самостоятельно выполненных заданий.
+    \item Всё что написано в заданиях «изучите, узнайте и прочее» нужно изучить и для себя зафиксировать, так как преподаватель может спросить об этом при сдаче лабораторной работы.
+\end{itemize}
+
+В качестве вспомогательного материала можно использовать:
+\begin{itemize}
+    \item Уроки курса \href{https://metanit.com/web/vue/1.1.php}{«Основы Vue 3»} с ресурса Metanit.
+    \item \href{https://ru.vuejs.org/guide/introduction.html}{Официальное руководство} (для удобства можно установите язык "Русский" в главном меню на странице).
+\end{itemize}
+
+
+\section{Задание}
+Напишите html страницу, на которой происходит взаимодействие с сервисом поиска статей, написанном в прошлой лабораторной работе, через функцию fetch() на ванильном javascript.
+
+Взаимодействие с сервисом ограничивается реализацией поиска статей по их заголовкам и отображением результатов на этой же странице с использованием оформления CSS стиля.
+
+\section{Задание}
+Напишите веб-страницу, на которой через Vue.js происходит взаимодействие с сервисом поиска статей из прошлой лабораторной работы.
+
+Взаимодействие с сервисом ограничивается реализацией поиска статей по их заголовкам и отображением результатов на этой же странице с использованием оформления CSS стиля.
+
+\end{document}
